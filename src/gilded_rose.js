@@ -69,7 +69,9 @@ let update_concert_pass =(item)=>{
      return item.quality
 }
 let is_legendary =(item)=>{
- 
+  if (item.name.includes('Sulfuras')){
+    return item.quality= 80
+  }
 }
 
 function update_quality(items) {
