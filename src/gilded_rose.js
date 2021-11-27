@@ -24,6 +24,9 @@ let is_concert =(item)=>{
 let is_sulfuras =(item)=>{
   return item.name === 'Sulfuras, Hand of Ragnaros'
 }
+let is_normal=(item)=>{
+  
+}
 let increase_quality = (item)=>{
   if(item.quality < MAX_NUMBER){
     item.quality +=1
@@ -82,8 +85,12 @@ let update_aged_brie=(item)=>{
     return increase_quality(item)
   }
 }
-let update_normal_item=()=>{
-  return;
+let update_normal_item=(item)=>{
+  let {sell_in} =item
+  if(sell_in <50){
+    return decrease_quality(item)
+  }
+  return item.quality ;
 }
 
 
@@ -144,6 +151,7 @@ module.exports = {
   is_legendary,
   descrease_sell_in,
   update_aged_brie,
-  update_normal_item
+  update_normal_item,
+  is_normal
 
 }

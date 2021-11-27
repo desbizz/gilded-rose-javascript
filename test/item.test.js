@@ -2,7 +2,7 @@ const { expect, test } = require('@jest/globals');
 var {update_quality,Item,is_Aged_Brie,is_concert,
     is_sulfuras,increase_quality,decrease_quality,degrade_twice,
     concert_expired,update_concert_pass,first_increase_concert, second_increase_concert,
-    is_legendary,descrease_sell_in,update_aged_brie,update_normal_item}= require('../src/gilded_rose')
+    is_legendary,descrease_sell_in,update_aged_brie,update_normal_item, is_normal}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -142,5 +142,8 @@ test('Test update Normal item quality not more than 50',()=>{
     let result = update_normal_item(item)
     expect(result).toBe(49)
 })
-
-
+test('Test is normal return false for Concert',()=>{
+    let item = {name:'Backstage passes to a TAFKAL80ETC concert',sell_in:6,quality:50}
+    let result = is_normal(item)
+    expect(result).toBe(false)
+})
