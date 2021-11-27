@@ -162,3 +162,9 @@ test('Test is normal return false for Conjured',()=>{
     let result = is_normal(item)
     expect(result).toBe(false)
 })
+test('Test is normal return true for other Items',()=>{
+    let item = {name:'Elixir of the Mongoose',sell_in:6,quality:50}
+    let result = is_normal(item)
+    expect(result).toBe(false)
+})
+
