@@ -38,7 +38,7 @@ let decrease_quality = (item)=>{
   
 }
 let degrade_twice = (item)=>{
- 
+  return item.quality = item.quality - item.quality
 }
 
 function update_quality(items) {
