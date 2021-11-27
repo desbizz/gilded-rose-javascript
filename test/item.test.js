@@ -147,3 +147,8 @@ test('Test is normal return false for Concert',()=>{
     let result = is_normal(item)
     expect(result).toBe(false)
 })
+test('Test is normal return false for Aged Brie',()=>{
+    let item = {name:'Aged Brie',sell_in:6,quality:50}
+    let result = is_normal(item)
+    expect(result).toBe(false)
+})
