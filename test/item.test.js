@@ -152,3 +152,8 @@ test('Test is normal return false for Aged Brie',()=>{
     let result = is_normal(item)
     expect(result).toBe(false)
 })
+test('Test is normal return false for Sulfuras',()=>{
+    let item = {name:'Sulfuras, Hand of Ragnaros',sell_in:6,quality:50}
+    let result = is_normal(item)
+    expect(result).toBe(false)
+})
