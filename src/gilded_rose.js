@@ -14,7 +14,7 @@ items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
 items.push(new Item('Conjured Mana Cake', 3, 6));
 
 let is_Aged_Brie =(item)=>{
-
+  return item.name === 'Aged Brie'
 }
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
