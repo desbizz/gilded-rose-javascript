@@ -31,7 +31,7 @@ let increase_quality = (item)=>{
   return item.quality
 }
 let descrease_sell_in =(item)=>{
-   
+   return item.sell_in = item.sell_in - 1 
 }
 let first_increase_concert = (item)=>{
   return item.quality +=2 
@@ -80,7 +80,9 @@ let is_legendary =(item)=>{
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
-    
+    if (is_sulfuras(items[i])) {
+       is_legendary(items[i])
+    }
     if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
       if (items[i].quality > MIN_NUMBER) {
         if (!is_sulfuras(items[i])) {
@@ -98,7 +100,7 @@ function update_quality(items) {
       }
     }
     if (!is_sulfuras(items[i])) {
-      items[i].sell_in = items[i].sell_in - 1;
+      descrease_sell_in(items[i])
     }
     if (items[i].sell_in < MIN_NUMBER) {
       if (!is_Aged_Brie(items[i])) {
