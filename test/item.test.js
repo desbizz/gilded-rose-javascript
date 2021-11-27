@@ -61,7 +61,7 @@ test('Test if item quality decreases and not less than zero', ()=>{
     let item1 = {quality:30}
     let item2 = {quality:0}
     let result1 = decrease_quality(item1)
-    let result2 = increase_quality(item2)
+    let result2 = decrease_quality(item2)
     expect(result1).toBe(29)
     expect(result2).toBe(0)
 })

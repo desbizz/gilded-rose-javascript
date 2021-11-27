@@ -31,7 +31,10 @@ let increase_quality = (item)=>{
   return item.quality
 }
 let decrease_quality = (item)=>{
- 
+  if(item.quality > MIN_NUMBER){
+    item.quality -=1
+  }
+  return item.quality
   
 }
 
@@ -40,7 +43,7 @@ function update_quality(items) {
     if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
       if (items[i].quality > MIN_NUMBER) {
         if (!is_sulfuras(items[i])) {
-          items[i].quality = items[i].quality - 1
+          decrease_quality(items[i])
         }
       }
     } else {
@@ -64,7 +67,7 @@ function update_quality(items) {
         if (!is_concert(items[i])) {
           if (items[i].quality > MIN_NUMBER) {
             if (!is_sulfuras(items[i])) {
-              items[i].quality = items[i].quality - 1
+              decrease_quality(items[i])
             }
           }
         } else {
