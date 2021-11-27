@@ -33,6 +33,9 @@ let increase_quality = (item)=>{
 let first_increase_concert = (item)=>{
   
 }
+let second_increase_concert = (item)=>{
+  
+}
 let decrease_quality = (item)=>{
   if(item.quality > MIN_NUMBER){
     item.quality -=1
@@ -119,6 +122,7 @@ module.exports = {
   degrade_twice,
   concert_expired,
   update_concert_pass,
-  first_increase_concert
+  first_increase_concert,
+  second_increase_concert
 
 }
