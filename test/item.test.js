@@ -87,7 +87,7 @@ test('Test update concert pass between 6 to 10 days',()=>{
     expect(result).toBe(11)
 })
 test('Test update concert pass between 0 to 5 days',()=>{
-    let item = {sell_in:7,quality:9}
+    let item = {sell_in:4,quality:9}
     let result = second_increase_concert(item)
     expect(result).toBe(12)
 })
@@ -96,3 +96,8 @@ test('Test update concert pass over 10 days',()=>{
     let result = update_concert_pass(item) 
     expect(result).toBe(10)
 }) 
+test('Test update concert pass function between 6 to 10 days',()=>{
+    let item = {sell_in:8,quality:9}
+    let result = update_concert_pass(item)
+    expect(result).toBe(11)
+})
