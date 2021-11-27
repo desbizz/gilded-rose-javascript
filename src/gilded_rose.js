@@ -25,7 +25,10 @@ let is_sulfuras =(item)=>{
   return item.name === 'Sulfuras, Hand of Ragnaros'
 }
 let increase_quality = (item)=>{
- 
+  if(item.quality < MAX_NUMBER){
+    item.quality +=1
+  }
+  return item.quality
 
 }
 
@@ -42,14 +45,10 @@ function update_quality(items) {
         items[i].quality = items[i].quality + 1
         if (is_concert(items[i])) {
           if (items[i].sell_in < 11) {
-            if (items[i].quality < MAX_NUMBER) {
-              items[i].quality = items[i].quality + 1
-            }
+            increase_quality(items[i])
           }
           if (items[i].sell_in < 6) {
-            if (items[i].quality < MAX_NUMBER) {
-              items[i].quality = items[i].quality + 1
-            }
+            increase_quality(items[i])
           }
         }
       }
@@ -69,9 +68,7 @@ function update_quality(items) {
           items[i].quality = items[i].quality - items[i].quality
         }
       } else {
-        if (items[i].quality < MAX_NUMBER) {
-          items[i].quality = items[i].quality + 1
-        }
+        increase_quality(items[i])
       }
     }
   }
