@@ -5,6 +5,8 @@ function Item(name, sell_in, quality) {
 }
 
 var items = []
+const MAX_NUMBER=50
+const MIN_NUMBER=0
 
 items.push(new Item('+5 Dexterity Vest', 10, 20));
 items.push(new Item('Aged Brie', 2, 0));
@@ -22,40 +24,44 @@ let is_concert =(item)=>{
 let is_sulfuras =(item)=>{
   return item.name === 'Sulfuras, Hand of Ragnaros'
 }
+let increase_quality = (item)=>{
+ 
+
+}
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
     if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
-      if (items[i].quality > 0) {
+      if (items[i].quality > MIN_NUMBER) {
         if (!is_sulfuras(items[i])) {
           items[i].quality = items[i].quality - 1
         }
       }
     } else {
-      if (items[i].quality < 50) {
+      if (items[i].quality < MAX_NUMBER) {
         items[i].quality = items[i].quality + 1
-        if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
+        if (is_concert(items[i])) {
           if (items[i].sell_in < 11) {
-            if (items[i].quality < 50) {
+            if (items[i].quality < MAX_NUMBER) {
               items[i].quality = items[i].quality + 1
             }
           }
           if (items[i].sell_in < 6) {
-            if (items[i].quality < 50) {
+            if (items[i].quality < MAX_NUMBER) {
               items[i].quality = items[i].quality + 1
             }
           }
         }
       }
     }
-    if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
+    if (!is_sulfuras(items[i])) {
       items[i].sell_in = items[i].sell_in - 1;
     }
-    if (items[i].sell_in < 0) {
-      if (items[i].name != 'Aged Brie') {
-        if (items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
-          if (items[i].quality > 0) {
-            if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
+    if (items[i].sell_in < MIN_NUMBER) {
+      if (!is_Aged_Brie(items[i])) {
+        if (!is_concert(items[i])) {
+          if (items[i].quality > MIN_NUMBER) {
+            if (!is_sulfuras(items[i])) {
               items[i].quality = items[i].quality - 1
             }
           }
@@ -63,7 +69,7 @@ function update_quality(items) {
           items[i].quality = items[i].quality - items[i].quality
         }
       } else {
-        if (items[i].quality < 50) {
+        if (items[i].quality < MAX_NUMBER) {
           items[i].quality = items[i].quality + 1
         }
       }
@@ -78,6 +84,7 @@ module.exports = {
   items,
   is_Aged_Brie,
   is_concert,
-  is_sulfuras
+  is_sulfuras,
+  increase_quality
 
 }
