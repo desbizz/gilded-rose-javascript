@@ -1,5 +1,6 @@
 const { expect, test } = require('@jest/globals');
-var {update_quality,Item,is_Aged_Brie,is_concert,is_sulfuras,increase_quality}= require('../src/gilded_rose')
+var {update_quality,Item,is_Aged_Brie,is_concert,
+    is_sulfuras,increase_quality,decrease_quality}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -55,5 +56,13 @@ test('Test if item quality increase and not greater than 50', ()=>{
     let result2 = increase_quality(item2)
     expect(result1).toBe(31)
     expect(result2).toBe(50)
+})
+test('Test if item quality decreases and not less than zero', ()=>{
+    let item1 = {quality:30}
+    let item2 = {quality:0}
+    let result1 = decrease_quality(item1)
+    let result2 = increase_quality(item2)
+    expect(result1).toBe(29)
+    expect(result2).toBe(0)
 })
   

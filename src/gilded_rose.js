@@ -29,7 +29,10 @@ let increase_quality = (item)=>{
     item.quality +=1
   }
   return item.quality
-
+}
+let decrease_quality = (item)=>{
+ 
+  
 }
 
 function update_quality(items) {
@@ -82,6 +85,7 @@ module.exports = {
   is_Aged_Brie,
   is_concert,
   is_sulfuras,
-  increase_quality
+  increase_quality,
+  decrease_quality
 
 }
