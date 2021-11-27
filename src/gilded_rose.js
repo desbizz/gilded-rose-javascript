@@ -13,7 +13,9 @@ items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
 items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
 items.push(new Item('Conjured Mana Cake', 3, 6));
 
+let is_Aged_Brie =(item)=>{
 
+}
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
     if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
@@ -66,5 +68,6 @@ function update_quality(items) {
 module.exports = {
   update_quality,
   Item,
-  items
+  items,
+  is_Aged_Brie
 }

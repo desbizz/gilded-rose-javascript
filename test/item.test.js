@@ -1,5 +1,5 @@
-const { expect } = require('@jest/globals');
-var {update_quality,Item}= require('../src/gilded_rose')
+const { expect, test } = require('@jest/globals');
+var {update_quality,Item,is_Aged_Brie}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -8,6 +8,7 @@ jest.mock('../src/gilded_rose', () => {
     };
   });
  var items = []
+ 
   
  test("Test Item function to add new item", function() {
     items.push(new Item('+5 Dexterity Vest', 10, 20));
@@ -24,17 +25,18 @@ jest.mock('../src/gilded_rose', () => {
   });
 
   test('Test result after updating all items Quality', async() => {
-    const days =10
-    const result ={}
+    let days =10
+    let result ={}
 
     for  (let i = 0; i < days; i++){
        result[i]=update_quality(items) 
-       console.log('Array'+[i],result[i])
        expect(result[i]).toMatchSnapshot();     
     }
-   
-    
-
   });
+  test('Test if item is Aged Brie', ()=>{
+      let item = {name:'Aged Brie'}
+      let result = is_Aged_Brie(item)
+      expect(result).toBe(true)
+  })
   
   
