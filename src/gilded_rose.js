@@ -77,7 +77,10 @@ let is_legendary =(item)=>{
   }
 }
 let update_aged_brie=(item)=>{
-  return;
+  let {sell_in} =item
+  if(sell_in <50){
+    return increase_quality(item)
+  }
 }
 
 
