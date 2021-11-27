@@ -76,6 +76,9 @@ let is_legendary =(item)=>{
     return item.quality= 80
   }
 }
+let update_aged_brie=(item)=>{
+  return;
+}
 
 
 function update_quality(items) {
@@ -136,6 +139,7 @@ module.exports = {
   first_increase_concert,
   second_increase_concert,
   is_legendary,
-  descrease_sell_in
+  descrease_sell_in,
+  update_aged_brie
 
 }
