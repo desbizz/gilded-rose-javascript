@@ -43,5 +43,6 @@ jest.mock('../src/gilded_rose', () => {
     let result = is_concert(item)
     expect(result).toBe(true)
 })
+
   
   

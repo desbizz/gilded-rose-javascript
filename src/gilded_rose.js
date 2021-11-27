@@ -17,13 +17,13 @@ let is_Aged_Brie =(item)=>{
   return item.name === 'Aged Brie'
 }
 let is_concert =(item)=>{
-  
+  return item.name === 'Backstage passes to a TAFKAL80ETC concert'
 }
+
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
-    console.log('Testing thisss',is_Aged_Brie(items[i]))
-    if (!is_Aged_Brie(items[i]) && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
+    if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
       if (items[i].quality > 0) {
         if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
           items[i].quality = items[i].quality - 1
@@ -76,4 +76,5 @@ module.exports = {
   items,
   is_Aged_Brie,
   is_concert
+
 }
