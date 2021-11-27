@@ -20,14 +20,14 @@ let is_concert =(item)=>{
   return item.name === 'Backstage passes to a TAFKAL80ETC concert'
 }
 let is_sulfuras =(item)=>{
- 
+  return item.name === 'Sulfuras, Hand of Ragnaros'
 }
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
     if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
       if (items[i].quality > 0) {
-        if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
+        if (!is_sulfuras(items[i])) {
           items[i].quality = items[i].quality - 1
         }
       }
