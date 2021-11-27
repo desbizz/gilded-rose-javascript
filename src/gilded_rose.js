@@ -19,7 +19,9 @@ let is_Aged_Brie =(item)=>{
 let is_concert =(item)=>{
   return item.name === 'Backstage passes to a TAFKAL80ETC concert'
 }
-
+let is_sulfuras =(item)=>{
+ 
+}
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
@@ -75,6 +77,7 @@ module.exports = {
   Item,
   items,
   is_Aged_Brie,
-  is_concert
+  is_concert,
+  is_sulfuras
 
 }
