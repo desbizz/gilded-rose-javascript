@@ -30,6 +30,9 @@ let increase_quality = (item)=>{
   }
   return item.quality
 }
+let descrease_sell_in =(item)=>{
+   
+}
 let first_increase_concert = (item)=>{
   return item.quality +=2 
 }
@@ -74,8 +77,10 @@ let is_legendary =(item)=>{
   }
 }
 
+
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
+    
     if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
       if (items[i].quality > MIN_NUMBER) {
         if (!is_sulfuras(items[i])) {
@@ -128,6 +133,7 @@ module.exports = {
   update_concert_pass,
   first_increase_concert,
   second_increase_concert,
-  is_legendary
+  is_legendary,
+  descrease_sell_in
 
 }
