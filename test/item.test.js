@@ -127,5 +127,10 @@ test('Test update Aged Brie',()=>{
     let result = update_aged_brie(item)
     expect(result).toBe(10)
 })
+test('Test update Aged Brie quality not more than 50',()=>{
+    let item = {name:'Aged Brie',sell_in:6,quality:9}
+    let result = update_aged_brie(item)
+    expect(result).toBe(10)
+})
 
 
