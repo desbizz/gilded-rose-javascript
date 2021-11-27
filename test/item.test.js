@@ -137,6 +137,10 @@ test('Test update Normal Item',()=>{
     let result = update_normal_item(item)
     expect(result).toBe(8)
 })
-
+test('Test update Normal item quality not more than 50',()=>{
+    let item = {name:'Elixir of the Mongoose',sell_in:6,quality:50}
+    let result = update_normal_item(item)
+    expect(result).toBe(49)
+})
 
 
