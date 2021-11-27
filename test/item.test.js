@@ -2,7 +2,7 @@ const { expect, test } = require('@jest/globals');
 var {update_quality,Item,is_Aged_Brie,is_concert,
     is_sulfuras,increase_quality,decrease_quality,degrade_twice,
     concert_expired,update_concert_pass,first_increase_concert, second_increase_concert,
-    is_legendary,descrease_sell_in,update_aged_brie}= require('../src/gilded_rose')
+    is_legendary,descrease_sell_in,update_aged_brie,update_normal_item}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -132,5 +132,11 @@ test('Test update Aged Brie quality not more than 50',()=>{
     let result = update_aged_brie(item)
     expect(result).toBe(50)
 })
+test('Test update Normal Item',()=>{
+    let item = {name:'Elixir of the Mongoose',sell_in:6,quality:9}
+    let result = update_normal_item(item)
+    expect(result).toBe(8)
+})
+
 
 

@@ -82,6 +82,9 @@ let update_aged_brie=(item)=>{
     return increase_quality(item)
   }
 }
+let update_normal_item=()=>{
+  return;
+}
 
 
 function update_quality(items) {
@@ -89,22 +92,19 @@ function update_quality(items) {
     if (is_sulfuras(items[i])) {
        is_legendary(items[i])
     }
+    if(is_Aged_Brie(items[i])){
+      update_aged_brie(items[i])
+    }
+    if(is_concert(items[i])){
+      update_concert_pass(items[i])
+     }
     if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
       if (items[i].quality > MIN_NUMBER) {
         if (!is_sulfuras(items[i])) {
           decrease_quality(items[i])
         }
       }
-    } else {
-      if (items[i].quality < MAX_NUMBER) {
-       if(is_concert(items[i])){
-        update_concert_pass(items[i])
-       }else{
-        increase_quality(items[i])
-       }
-
-      }
-    }
+    } 
     if (!is_sulfuras(items[i])) {
       descrease_sell_in(items[i])
     }
@@ -143,6 +143,7 @@ module.exports = {
   second_increase_concert,
   is_legendary,
   descrease_sell_in,
-  update_aged_brie
+  update_aged_brie,
+  update_normal_item
 
 }
