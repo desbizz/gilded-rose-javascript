@@ -106,3 +106,8 @@ test('Test update concert pass function between 0 to 5 days',()=>{
     let result = update_concert_pass(item)
     expect(result).toBe(12)
 })
+test('Test update concert pass function that is expired',()=>{
+    let item = {sell_in:-3,quality:9}
+    let result = update_concert_pass(item)
+    expect(result).toBe(0)
+})
