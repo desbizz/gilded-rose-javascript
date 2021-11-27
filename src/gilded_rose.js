@@ -34,7 +34,8 @@ let first_increase_concert = (item)=>{
   return item.quality +=2 
 }
 let second_increase_concert = (item)=>{
-  return item.quality +=3 
+  item.quality +=3
+  return item.quality <= MAX_NUMBER ? item.quality : MAX_NUMBER
 }
 let decrease_quality = (item)=>{
   if(item.quality > MIN_NUMBER){
@@ -54,18 +55,18 @@ let concert_expired = (item)=>{
 }
 let update_concert_pass =(item)=>{
   let {sell_in} = item
-  if(sell_in <= 10 && sell_in > 5){
-    item.quality = first_increase_concert(item)
-  }
-  else if(sell_in <= 5 && sell_in >= 0){
-    item.quality = second_increase_concert(item)
-  }
-  else if (concert_expired(item)){
-    item.quality = degrade_twice(item)
-  }else {
-    item.quality = increase_quality(item)
-  }
-  return item.quality
+   if (sell_in <=5  && sell_in >= 0){
+      item.quality= second_increase_concert(item)
+    }
+    else if (sell_in <=10  && sell_in > 5){
+      item.quality= first_increase_concert(item)
+    }else if (concert_expired(item)){
+      item.quality= degrade_twice(item)
+    }else {
+      item.quality= increase_quality(item)
+    }
+        
+     return item.quality
 }
 
 function update_quality(items) {
@@ -78,15 +79,12 @@ function update_quality(items) {
       }
     } else {
       if (items[i].quality < MAX_NUMBER) {
+       if(is_concert(items[i])){
+        update_concert_pass(items[i])
+       }else{
         increase_quality(items[i])
-        if (is_concert(items[i])) {
-          if (items[i].sell_in < 11) {
-            increase_quality(items[i])
-          }
-          if (items[i].sell_in < 6) {
-            increase_quality(items[i])
-          }
-        }
+       }
+
       }
     }
     if (!is_sulfuras(items[i])) {
