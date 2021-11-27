@@ -40,8 +40,11 @@ let decrease_quality = (item)=>{
 let degrade_twice = (item)=>{
   return item.quality = item.quality - item.quality
 }
-let concert_expired = ()=>{
-
+let concert_expired = (item)=>{
+  if(item.sell_in < MIN_NUMBER){
+    return item.quality = MIN_NUMBER
+  }
+  return item.quality
 }
 
 function update_quality(items) {
@@ -96,6 +99,7 @@ module.exports = {
   is_sulfuras,
   increase_quality,
   decrease_quality,
-  degrade_twice
+  degrade_twice,
+  concert_expired
 
 }
