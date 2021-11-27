@@ -1,7 +1,8 @@
 const { expect, test } = require('@jest/globals');
 var {update_quality,Item,is_Aged_Brie,is_concert,
     is_sulfuras,increase_quality,decrease_quality,degrade_twice,
-    concert_expired,update_concert_pass,first_increase_concert, second_increase_concert}= require('../src/gilded_rose')
+    concert_expired,update_concert_pass,first_increase_concert, second_increase_concert,
+    is_legendary}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -110,4 +111,9 @@ test('Test update concert pass function that is expired',()=>{
     let item = {sell_in:-3,quality:9}
     let result = update_concert_pass(item)
     expect(result).toBe(0)
+})
+test('Test legendary Items',()=>{
+    let item = {name:'Sulfuras, Hand of Ragnaros',sell_in:-3,quality:9}
+    let result = is_legendary(item)
+    expect(result).toBe(80)
 })

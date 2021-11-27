@@ -68,6 +68,9 @@ let update_concert_pass =(item)=>{
         
      return item.quality
 }
+let is_legendary =(item)=>{
+ 
+}
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
@@ -122,6 +125,7 @@ module.exports = {
   concert_expired,
   update_concert_pass,
   first_increase_concert,
-  second_increase_concert
+  second_increase_concert,
+  is_legendary
 
 }
