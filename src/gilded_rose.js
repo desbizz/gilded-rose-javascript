@@ -25,7 +25,9 @@ let is_sulfuras =(item)=>{
   return item.name === 'Sulfuras, Hand of Ragnaros'
 }
 let is_normal=(item)=>{
-  
+  if(!is_sulfuras && !is_Aged_Brie && !is_concert && !is_sulfuras){
+    return true
+  }else return false
 }
 let increase_quality = (item)=>{
   if(item.quality < MAX_NUMBER){
