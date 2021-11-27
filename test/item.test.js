@@ -1,5 +1,5 @@
 const { expect, test } = require('@jest/globals');
-var {update_quality,Item,is_Aged_Brie}= require('../src/gilded_rose')
+var {update_quality,Item,is_Aged_Brie,is_concert}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -38,5 +38,10 @@ jest.mock('../src/gilded_rose', () => {
       let result = is_Aged_Brie(item)
       expect(result).toBe(true)
   })
+  test('Test if item is Backstage passes to a TAFKAL80ETC concert', ()=>{
+    let item = {name:'Backstage passes to a TAFKAL80ETC concert'}
+    let result = is_concert(item)
+    expect(result).toBe(true)
+})
   
   

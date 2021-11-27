@@ -16,7 +16,9 @@ items.push(new Item('Conjured Mana Cake', 3, 6));
 let is_Aged_Brie =(item)=>{
   return item.name === 'Aged Brie'
 }
-
+let is_concert =(item)=>{
+  
+}
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
@@ -72,5 +74,6 @@ module.exports = {
   update_quality,
   Item,
   items,
-  is_Aged_Brie
+  is_Aged_Brie,
+  is_concert
 }
