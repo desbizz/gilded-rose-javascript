@@ -37,6 +37,9 @@ let decrease_quality = (item)=>{
   return item.quality
   
 }
+let degrade_twice = (item)=>{
+ 
+}
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
@@ -48,7 +51,7 @@ function update_quality(items) {
       }
     } else {
       if (items[i].quality < MAX_NUMBER) {
-        items[i].quality = items[i].quality + 1
+        increase_quality(items[i])
         if (is_concert(items[i])) {
           if (items[i].sell_in < 11) {
             increase_quality(items[i])
@@ -71,7 +74,7 @@ function update_quality(items) {
             }
           }
         } else {
-          items[i].quality = items[i].quality - items[i].quality
+          degrade_twice(items[i])
         }
       } else {
         increase_quality(items[i])
@@ -89,6 +92,7 @@ module.exports = {
   is_concert,
   is_sulfuras,
   increase_quality,
-  decrease_quality
+  decrease_quality,
+  degrade_twice
 
 }
