@@ -42,9 +42,12 @@ let degrade_twice = (item)=>{
 }
 let concert_expired = (item)=>{
   if(item.sell_in < MIN_NUMBER){
-    return item.quality = MIN_NUMBER
+    return true
   }
-  return item.quality
+  return false
+}
+let update_concert_pass =(item)=>{
+ 
 }
 
 function update_quality(items) {
@@ -100,6 +103,7 @@ module.exports = {
   increase_quality,
   decrease_quality,
   degrade_twice,
-  concert_expired
+  concert_expired,
+  update_concert_pass
 
 }

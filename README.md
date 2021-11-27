@@ -25,7 +25,7 @@ First an introduction to our system:
 
 Pretty simple, right? Well this is where it gets interesting:
 
-  - Once the *sell_in* days is less then zero, *quality* degrades twice as fast
+  - Once the *sell_in* days is less then zero, *quality*   twice as fast
 
   - The *quality* of an item is never negative
 
