@@ -53,7 +53,19 @@ let concert_expired = (item)=>{
   return false
 }
 let update_concert_pass =(item)=>{
-
+  let {sell_in} = item
+  if(sell_in <= 10 && sell_in > 5){
+    item.quality = first_increase_concert(item)
+  }
+  else if(sell_in <= 5 && sell_in >= 0){
+    item.quality = second_increase_concert(item)
+  }
+  else if (concert_expired(item)){
+    item.quality = degrade_twice(item)
+  }else {
+    item.quality = increase_quality(item)
+  }
+  return item.quality
 }
 
 function update_quality(items) {
