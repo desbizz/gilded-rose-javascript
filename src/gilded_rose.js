@@ -40,6 +40,9 @@ let decrease_quality = (item)=>{
 let degrade_twice = (item)=>{
   return item.quality = item.quality - item.quality
 }
+let concert_expired = ()=>{
+
+}
 
 function update_quality(items) {
   for (var i = 0; i < items.length; i++) {
