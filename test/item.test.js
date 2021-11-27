@@ -1,7 +1,7 @@
 const { expect, test } = require('@jest/globals');
 var {update_quality,Item,is_Aged_Brie,is_concert,
     is_sulfuras,increase_quality,decrease_quality,degrade_twice,
-    concert_expired,update_concert_pass}= require('../src/gilded_rose')
+    concert_expired,update_concert_pass,first_increase_concert}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -80,5 +80,10 @@ test('Test Update Concert Quality', ()=>{
     let item = {sell_in:-2,quality:9}
     let result = update_concert_pass(item)
     expect(result).toBe(0)
+})
+test('Test update concert pass between 6 to 11 days',()=>{
+    let item = {sell_in:7,quality:9}
+    let result = first_increase_concert(item)
+    expect(result).toBe(11)
 })
   
