@@ -92,13 +92,16 @@ let update_aged_brie=(item)=>{
 }
 let update_normal_item=(item)=>{
   let {sell_in,quality} =item
-  if(sell_in < MAX_NUMBER && quality > MIN_NUMBER){
-    return decrease_quality(item)
+  if(quality <= MAX_NUMBER && quality > MIN_NUMBER){
+     decrease_quality(item)
   }
   return item.quality ;
 }
 let update_conjured=(item)=>{
-  return;
+  if(item.quality > MIN_NUMBER){
+    item.quality -=2
+  }
+  return item.quality
 }
 
 
@@ -108,11 +111,10 @@ function update_quality(items) {
        is_legendary(items[i])
     }
     if (is_normal(items[i])) {
-      if (items[i].quality > MIN_NUMBER) {
-        if (!is_sulfuras(items[i])) {
-          decrease_quality(items[i])
-        }
-      }
+      update_normal_item(items[i])
+    }
+    if(is_conjured(items[i])){
+      update_conjured(items[i])
     }
     if(is_Aged_Brie(items[i])){
       update_aged_brie(items[i])
@@ -124,21 +126,24 @@ function update_quality(items) {
     if (!is_sulfuras(items[i])) {
       descrease_sell_in(items[i])
     }
-    if (items[i].sell_in < MIN_NUMBER) {
-      if (!is_Aged_Brie(items[i])) {
-        if (!is_concert(items[i])) {
-          if (items[i].quality > MIN_NUMBER) {
-            if (!is_sulfuras(items[i])) {
-              decrease_quality(items[i])
-            }
-          }
-        } else {
-          degrade_twice(items[i])
-        }
-      } else {
-        increase_quality(items[i])
-      }
+    if(is_normal(items[i])){
+
     }
+    // if (items[i].sell_in < MIN_NUMBER) {
+    //   if (!is_Aged_Brie(items[i])) {
+    //     if (!is_concert(items[i])) {
+    //       if (items[i].quality > MIN_NUMBER) {
+    //         if (!is_sulfuras(items[i])) {
+    //           decrease_quality(items[i])
+    //         }
+    //       }
+    //     } else {
+    //       degrade_twice(items[i])
+    //     }
+    //   } else {
+    //     increase_quality(items[i])
+    //   }
+    // }
   }
   return  items
 }
