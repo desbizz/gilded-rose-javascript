@@ -3,7 +3,7 @@ var {update_quality,Item,is_Aged_Brie,is_concert,
     is_sulfuras,increase_quality,decrease_quality,degrade_twice,
     concert_expired,update_concert_pass,first_increase_concert, second_increase_concert,
     is_legendary,descrease_sell_in,update_aged_brie,update_normal_item, is_normal,
-    is_conjured}= require('../src/gilded_rose')
+    is_conjured,update_conjured}= require('../src/gilded_rose')
 jest.mock('../src/gilded_rose', () => {
     const originalModule = jest.requireActual('../src/gilded_rose');
     return {
@@ -166,16 +166,16 @@ test('Test normal return false for Conjured',()=>{
 test('Test normal return true for other Items',()=>{
     let item = {name:'Elixir of the Mongoose',sell_in:6,quality:50}
     let result = is_normal(item)
-    expect(result).toBe(false)
-})
-test('Test normal return true for other Items',()=>{
-    let item = {name:'Elixir of the Mongoose',sell_in:6,quality:50}
-    let result = is_normal(item)
     expect(result).toBe(true)
 })
 test('Test item is Conjured',()=>{
     let item = {name:'Conjured Mana Cake',sell_in:6,quality:50}
     let result = is_conjured(item)
     expect(result).toBe(true)
+})
+test('Test update Conjured item',()=>{
+    let item = {name:'Conjured Mana Cake',sell_in:6,quality:50}
+    let result = update_conjured(item)
+    expect(result).toBe(48)
 })
 

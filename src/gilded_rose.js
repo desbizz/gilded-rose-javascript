@@ -25,7 +25,7 @@ let is_sulfuras =(item)=>{
   return item.name === 'Sulfuras, Hand of Ragnaros'
 }
 let is_conjured =(item)=>{
-  return;
+  return item.name.includes('Conjured');
 }
 let is_normal=(item)=>{
   if(!is_Aged_Brie(item) && !is_concert(item) && !is_sulfuras(item) && !is_conjured(item) ){
@@ -92,10 +92,13 @@ let update_aged_brie=(item)=>{
 }
 let update_normal_item=(item)=>{
   let {sell_in,quality} =item
-  if(sell_in <MAX_NUMBER && quality > MIN_NUMBER){
+  if(sell_in < MAX_NUMBER && quality > MIN_NUMBER){
     return decrease_quality(item)
   }
   return item.quality ;
+}
+let update_conjured=(item)=>{
+  return;
 }
 
 
@@ -104,19 +107,20 @@ function update_quality(items) {
     if (is_sulfuras(items[i])) {
        is_legendary(items[i])
     }
-    if(is_Aged_Brie(items[i])){
-      update_aged_brie(items[i])
-    }
-    if(is_concert(items[i])){
-      update_concert_pass(items[i])
-     }
     if (is_normal(items[i])) {
       if (items[i].quality > MIN_NUMBER) {
         if (!is_sulfuras(items[i])) {
           decrease_quality(items[i])
         }
       }
-    } 
+    }
+    if(is_Aged_Brie(items[i])){
+      update_aged_brie(items[i])
+    }
+    if(is_concert(items[i])){
+      update_concert_pass(items[i])
+     }
+    
     if (!is_sulfuras(items[i])) {
       descrease_sell_in(items[i])
     }
@@ -158,6 +162,7 @@ module.exports = {
   update_aged_brie,
   update_normal_item,
   is_normal,
-  is_conjured
+  is_conjured,
+  update_conjured
 
 }
