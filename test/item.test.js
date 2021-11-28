@@ -183,4 +183,8 @@ test('Test normal items degrades twice when sell_days less than zero',()=>{
     let result=update_normal_item(item)
     expect(result).toBe(48)
 })
-
+test('Test normal items degrades once when sell_days greater than zero',()=>{
+    let item = {name:'Elixir of the Mongoose',sell_in:3,quality:50}
+    let result=update_normal_item(item)
+    expect(result).toBe(49)
+})
