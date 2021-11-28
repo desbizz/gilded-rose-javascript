@@ -24,8 +24,11 @@ let is_concert =(item)=>{
 let is_sulfuras =(item)=>{
   return item.name === 'Sulfuras, Hand of Ragnaros'
 }
+let is_conjured =(item)=>{
+  return;
+}
 let is_normal=(item)=>{
-  if(!is_sulfuras && !is_Aged_Brie && !is_concert && !is_sulfuras){
+  if(!is_Aged_Brie(item) && !is_concert(item) && !is_sulfuras(item) && !is_conjured(item) ){
     return true
   }else return false
 }
@@ -88,8 +91,8 @@ let update_aged_brie=(item)=>{
   }
 }
 let update_normal_item=(item)=>{
-  let {sell_in} =item
-  if(sell_in <50){
+  let {sell_in,quality} =item
+  if(sell_in <MAX_NUMBER && quality > MIN_NUMBER){
     return decrease_quality(item)
   }
   return item.quality ;
@@ -107,7 +110,7 @@ function update_quality(items) {
     if(is_concert(items[i])){
       update_concert_pass(items[i])
      }
-    if (!is_Aged_Brie(items[i]) && !is_concert(items[i])) {
+    if (is_normal(items[i])) {
       if (items[i].quality > MIN_NUMBER) {
         if (!is_sulfuras(items[i])) {
           decrease_quality(items[i])
@@ -154,6 +157,7 @@ module.exports = {
   descrease_sell_in,
   update_aged_brie,
   update_normal_item,
-  is_normal
+  is_normal,
+  is_conjured
 
 }
