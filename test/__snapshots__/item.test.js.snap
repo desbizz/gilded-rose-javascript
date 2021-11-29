@@ -1,5 +1,505 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test result after refactoring update_quality failed 1`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 8,
+    "sell_in": -1,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 20,
+    "sell_in": -9,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -6,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 38,
+    "sell_in": 4,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -3,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -8,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -5,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -8,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 2`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 6,
+    "sell_in": -2,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 22,
+    "sell_in": -10,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -7,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 41,
+    "sell_in": 3,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -4,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -9,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -6,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -9,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 3`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 4,
+    "sell_in": -3,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 24,
+    "sell_in": -11,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -8,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 44,
+    "sell_in": 2,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -5,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -10,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -7,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -10,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 4`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 2,
+    "sell_in": -4,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 26,
+    "sell_in": -12,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -9,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 47,
+    "sell_in": 1,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -6,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -11,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -8,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -11,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 5`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 0,
+    "sell_in": -5,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 28,
+    "sell_in": -13,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -10,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 50,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -7,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -12,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -9,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -12,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 6`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 0,
+    "sell_in": -6,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 30,
+    "sell_in": -14,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -11,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -1,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -8,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -13,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -10,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -13,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 7`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 0,
+    "sell_in": -7,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 32,
+    "sell_in": -15,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -12,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -2,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -9,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -14,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -11,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -14,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 8`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 0,
+    "sell_in": -8,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 34,
+    "sell_in": -16,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -13,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -3,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -10,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -15,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -12,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -15,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 9`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 0,
+    "sell_in": -9,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 36,
+    "sell_in": -17,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -14,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -4,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -11,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -16,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -13,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -16,
+  },
+]
+`;
+
+exports[`Test result after refactoring update_quality failed 10`] = `
+Array [
+  Item {
+    "name": "+5 Dexterity Vest",
+    "quality": 0,
+    "sell_in": -10,
+  },
+  Item {
+    "name": "Aged Brie",
+    "quality": 38,
+    "sell_in": -18,
+  },
+  Item {
+    "name": "Elixir of the Mongoose",
+    "quality": 0,
+    "sell_in": -15,
+  },
+  Item {
+    "name": "Sulfuras, Hand of Ragnaros",
+    "quality": 80,
+    "sell_in": 0,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -5,
+  },
+  Item {
+    "name": "Backstage passes to a TAFKAL80ETC concert",
+    "quality": 0,
+    "sell_in": -12,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -17,
+  },
+  Item {
+    "name": "Conjured Mana Cake",
+    "quality": 0,
+    "sell_in": -14,
+  },
+  Item {
+    "name": "New Item",
+    "quality": 0,
+    "sell_in": -17,
+  },
+]
+`;
+
 exports[`Test result after updating all items Quality 1`] = `
 Array [
   Item {
