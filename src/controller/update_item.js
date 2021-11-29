@@ -10,7 +10,7 @@ const {
 } = require("./confirm_item");
 const {
   increase_quality,
-  decrease_sell_in: decrease_sell_in,
+  decrease_sell_in,
   first_increase_concert,
   second_increase_concert,
   decrease_quality,
@@ -23,7 +23,7 @@ const update_concert_pass = (item) => {
   try {
     let { sell_in } = item;
     decrease_sell_in(item);
-    if (sell_in <= 5 && sell_in >= 0) {
+    if (sell_in <= 5 && sell_in >= MIN_NUMBER) {
       item.quality = second_increase_concert(item);
     } else if (sell_in <= 10 && sell_in > 5) {
       item.quality = first_increase_concert(item);
@@ -42,13 +42,13 @@ const update_concert_pass = (item) => {
 const update_aged_brie = (item) => {
   try {
     let { sell_in, quality } = item;
-    if (sell_in > 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
+    if (sell_in > MIN_NUMBER && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
       increase_quality(item);
-    } else if (sell_in <= 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
+    } else if (sell_in <= MIN_NUMBER && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
       first_increase_concert(item);
     }
     decrease_sell_in(item);
-    return item.quality >= 0 ? item.quality : 0;
+    return item.quality >= MIN_NUMBER ? item.quality : MIN_NUMBER;
   } catch (err) {
     throw new Error({ message: "Error updating Aged Brie", err: err });
   }
@@ -56,9 +56,9 @@ const update_aged_brie = (item) => {
 const update_conjured = (item) => {
   try {
     let { sell_in, quality } = item;
-    if (sell_in > 0 && quality <= MAX_NUMBER && quality > MIN_NUMBER) {
+    if (sell_in > MIN_NUMBER && quality <= MAX_NUMBER && quality > MIN_NUMBER) {
       decrease_quality(item);
-    } else if (sell_in <= 0 && quality <= MAX_NUMBER && quality > MIN_NUMBER) {
+    } else if (sell_in <= MIN_NUMBER && quality <= MAX_NUMBER && quality > MIN_NUMBER) {
       decrease_quality_twice(item);
     }
 
@@ -71,9 +71,9 @@ const update_conjured = (item) => {
 
 const update_normal_item = (item) => {
   let { sell_in, quality, name } = item;
-  if (sell_in > 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
+  if (sell_in > MIN_NUMBER && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
     decrease_quality(item);
-  } else if (sell_in <= 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
+  } else if (sell_in <= MIN_NUMBER && quality <= MAX_NUMBER && quality >= MIN_NUMBER) {
     decrease_quality_twice(item);
   }
   decrease_sell_in(item);

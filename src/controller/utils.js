@@ -43,8 +43,8 @@ const decrease_quality_twice = (item) => {
   if (item.quality > MIN_NUMBER) {
     item.quality -= 2;
   }
-  if (item.quality < 0) {
-    item.quality = 0;
+  if (item.quality < MIN_NUMBER) {
+    item.quality = MIN_NUMBER;
   }
   return item.quality;
 };
