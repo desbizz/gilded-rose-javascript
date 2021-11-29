@@ -36,21 +36,45 @@ let increase_quality = (item)=>{
   if(item.quality < MAX_NUMBER){
     item.quality +=1
   }
+  if(item.quality > MAX_NUMBER ){
+    item.quality = MAX_NUMBER
+  }
   return item.quality
 }
 let descrease_sell_in =(item)=>{
    return item.sell_in = item.sell_in - 1 
 }
 let first_increase_concert = (item)=>{
-  return item.quality +=2 
+  item.quality +=2
+  if(item.quality > MAX_NUMBER ){
+    item.quality = MAX_NUMBER
+  }
+  return item.quality
 }
 let second_increase_concert = (item)=>{
   item.quality +=3
-  return item.quality <= MAX_NUMBER ? item.quality : MAX_NUMBER
+  if(item.quality > MAX_NUMBER ){
+    item.quality = MAX_NUMBER
+  }
+  return item.quality
 }
 let decrease_quality = (item)=>{
   if(item.quality > MIN_NUMBER){
     item.quality -=1
+
+  }
+  if(item.quality < MIN_NUMBER ){
+    item.quality = MIN_NUMBER
+  }
+  return item.quality
+}
+let decrease_quality_twice = (item)=>{
+  if(item.quality > MIN_NUMBER){
+    item.quality -=2
+
+  }
+  if(item.quality < 0 ){
+    item.quality = 0
   }
   return item.quality
   
@@ -66,18 +90,19 @@ let concert_expired = (item)=>{
 }
 let update_concert_pass =(item)=>{
   let {sell_in} = item
+   descrease_sell_in(item)
    if (sell_in <=5  && sell_in >= 0){
       item.quality= second_increase_concert(item)
     }
     else if (sell_in <=10  && sell_in > 5){
       item.quality= first_increase_concert(item)
-    }else if (concert_expired(item)){
-      item.quality= degrade_twice(item)
-    }else {
+    }else if(sell_in > 10 ){
       item.quality= increase_quality(item)
+    } 
+    if(concert_expired(item)) {    
+      item.quality= degrade_twice(item)    
     }
-        
-     return item.quality
+    return item.quality;
 }
 let is_legendary =(item)=>{
   if (item.name.includes('Sulfuras')){
@@ -85,23 +110,38 @@ let is_legendary =(item)=>{
   }
 }
 let update_aged_brie=(item)=>{
-  let {sell_in} =item
-  if(sell_in <50){
-    return increase_quality(item)
+  let {sell_in,quality} =item
+  if(sell_in > 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER){
+     increase_quality(item)
   }
+  else if(sell_in <= 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER){
+    first_increase_concert(item)
+ }
+  descrease_sell_in(item)
+  return item.quality >= 0 ? item.quality : 0 ;
 }
 let update_normal_item=(item)=>{
   let {sell_in,quality} =item
-  if(quality <= MAX_NUMBER && quality > MIN_NUMBER){
+  if(sell_in > 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER){
      decrease_quality(item)
   }
-  return item.quality ;
+  else if(sell_in <= 0 && quality <= MAX_NUMBER && quality >= MIN_NUMBER){
+    decrease_quality_twice(item)
+ }
+  descrease_sell_in(item)
+  return item.quality
 }
 let update_conjured=(item)=>{
-  if(item.quality > MIN_NUMBER){
-    item.quality -=2
+  let {sell_in,quality} =item
+  if(sell_in > 0 && quality <= MAX_NUMBER && quality > MIN_NUMBER){
+     decrease_quality(item)
   }
-  return item.quality
+  else if(sell_in <= 0 && quality <= MAX_NUMBER && quality > MIN_NUMBER){
+    decrease_quality_twice(item)
+ }
+ 
+  descrease_sell_in(item)
+  return item.quality ;
 }
 
 
@@ -113,37 +153,16 @@ function update_quality(items) {
     if (is_normal(items[i])) {
       update_normal_item(items[i])
     }
-    if(is_conjured(items[i])){
-      update_conjured(items[i])
-    }
+   
     if(is_Aged_Brie(items[i])){
       update_aged_brie(items[i])
     }
     if(is_concert(items[i])){
       update_concert_pass(items[i])
      }
-    
-    if (!is_sulfuras(items[i])) {
-      descrease_sell_in(items[i])
-    }
-    if(is_normal(items[i])){
-
-    }
-    // if (items[i].sell_in < MIN_NUMBER) {
-    //   if (!is_Aged_Brie(items[i])) {
-    //     if (!is_concert(items[i])) {
-    //       if (items[i].quality > MIN_NUMBER) {
-    //         if (!is_sulfuras(items[i])) {
-    //           decrease_quality(items[i])
-    //         }
-    //       }
-    //     } else {
-    //       degrade_twice(items[i])
-    //     }
-    //   } else {
-    //     increase_quality(items[i])
-    //   }
-    // }
+     if(is_conjured(items[i])){
+      update_conjured(items[i])
+     }
   }
   return  items
 }

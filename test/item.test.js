@@ -134,9 +134,9 @@ test('Test update Aged Brie quality not more than 50',()=>{
     expect(result).toBe(50)
 })
 test('Test update Normal Item',()=>{
-    let item = {name:'Elixir of the Mongoose',sell_in:6,quality:9}
+    let item = {name:'Elixir of the Mongoose',sell_in:-1,quality:1}
     let result = update_normal_item(item)
-    expect(result).toBe(8)
+    expect(result).toBe(0)
 })
 test('Test update Normal item quality not more than 50',()=>{
     let item = {name:'Elixir of the Mongoose',sell_in:6,quality:50}
@@ -174,9 +174,14 @@ test('Test item is Conjured',()=>{
     expect(result).toBe(true)
 })
 test('Test update Conjured item',()=>{
-    let item = {name:'Conjured Mana Cake',sell_in:6,quality:50}
+    let item = {name:'Conjured Mana Cake',sell_in:-1,quality:1}
     let result = update_conjured(item)
-    expect(result).toBe(48)
+    expect(result).toBe(0)
+})
+test('Test update Conjured item not less than zero',()=>{
+    let item = {name:'Conjured Mana Cake',sell_in:-3,quality:8}
+    let result = update_conjured(item)
+    expect(result).toBe(6)
 })
 test('Test normal items degrades twice when sell_days less than zero',()=>{
     let item = {name:'Elixir of the Mongoose',sell_in:-3,quality:50}
@@ -187,4 +192,14 @@ test('Test normal items degrades once when sell_days greater than zero',()=>{
     let item = {name:'Elixir of the Mongoose',sell_in:3,quality:50}
     let result=update_normal_item(item)
     expect(result).toBe(49)
+})
+test('Test update Aged Brie increases quality when sell_days less than zero',()=>{
+    let item = {name:'Aged Brie',sell_in:-3,quality:8}
+    let result = update_aged_brie(item)
+    expect(result).toBe(10)
+})
+test('Test update Qualiity does is not negative ',()=>{
+    let item = {name:'Elixir of the Mongoose',sell_in:-1,quality:1}
+    let result = update_normal_item(item)
+    expect(result).toBe(0)
 })
